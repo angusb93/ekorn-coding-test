@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Hello from './lib/components/Hello.svelte';
-  import DataPreview from './lib/components/DataPreview.svelte';
   import { studentsData } from './lib/data';
 
   type Student = {
@@ -16,9 +14,6 @@
 </script>
 
 <main>
-  <!-- Delete <Hello> -->
-  <Hello></Hello>
-
   <!-- The list of students -->
   {#each students as student}
     <!-- Example content to showcase Svelte — replace with your own template  -->
@@ -37,9 +32,6 @@
       Active: {student.activeLabel}
     </div>
   {/each}
-
-  <!-- Delete <DataPreview> -->
-  <DataPreview value={studentsData}></DataPreview>
 </main>
 
 <style>
