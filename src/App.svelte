@@ -16,9 +16,11 @@
     const calculateAge = (birthdateString: string) => {
       const birthdate = new Date(birthdateString);
 
+      // Handle if date string doesnt parse. return 0.
+      // I would like to be able to return null here or throw an error.
       if (isNaN(birthdate.getTime())) {
         console.error(`Couldn't parse birthdate: "${birthdateString}"`);
-        return null;
+        return 0;
       }
 
       const today = new Date();
