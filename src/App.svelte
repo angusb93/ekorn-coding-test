@@ -1,5 +1,6 @@
 <script lang="ts">
   import { studentsData } from './lib/data';
+  import type { StudentDataItem } from './lib/data';
 
   type Student = {
     id: string;
@@ -9,6 +10,17 @@
     activeLabel: 'Yes' | 'No';
   };
 
+  function transformStudentData(studentsData: StudentDataItem[]) {
+    const transformedStudentsData = studentsData.map(student => {
+      return {
+        id: student.id,
+        name: `${student.firstName} ${student.lastName}`,
+        activelabel: (student.isActive
+          ? 'Yes'
+          : 'No') as Student['activeLabel'],
+      };
+    });
+  }
   // Replace mock example objects with the actual data from the studentsData array
   const students: Student[] = [];
 </script>
@@ -19,7 +31,6 @@
     <!-- Example content to showcase Svelte — replace with your own template  -->
     <div>
       <div>{student.name.toUpperCase()}</div>
-
       <p>
         {#if student.age > 25}
           Mature Student - {student.age} years old
