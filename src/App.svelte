@@ -10,16 +10,43 @@
     activeLabel: 'Yes' | 'No';
   };
 
-  function transformStudentData(studentsData: StudentDataItem[]) {
+  function transformStudentData(
+    studentsData: StudentDataItem[],
+  ): string | number {
+    const calculateAge = (birthdateString: string) => {
+      const birthdate = new Date(birthdateString);
+
+      if (isNaN(birthdate.getTime())) {
+        console.error(`Couldn't parse birthdate: "${birthdateString}"`);
+        return null;
+      }
+
+      const today = new Date();
+      let age = today.getFullYear() - birthdate.getFullYear();
+      const monthDifference = today.getMonth() - birthdate.getMonth();
+
+      if (
+        monthDifference < 0 ||
+        (monthDifference === 0 && today.getDate() < birthdate.getDate())
+      ) {
+        age--;
+      }
+
+      return age;
+    };
+
     const transformedStudentsData = studentsData.map(student => {
       return {
         id: student.id,
         name: `${student.firstName} ${student.lastName}`,
+        age: calculateAge(student.birthdate),
         activelabel: (student.isActive
           ? 'Yes'
           : 'No') as Student['activeLabel'],
       };
     });
+
+    return transformedStudentsData;
   }
   // Replace mock example objects with the actual data from the studentsData array
   const students: Student[] = [];
