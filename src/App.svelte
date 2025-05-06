@@ -10,10 +10,8 @@
     activeLabel: 'Yes' | 'No';
   };
 
-  function transformStudentData(
-    studentsData: StudentDataItem[],
-  ): string | number {
-    const calculateAge = (birthdateString: string) => {
+  function transformStudentData(studentsData: StudentDataItem[]) {
+    const calculateAge = (birthdateString: string): number => {
       const birthdate = new Date(birthdateString);
 
       // Handle if date string doesnt parse. return 0.
