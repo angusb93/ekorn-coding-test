@@ -12,22 +12,7 @@
   };
 
   // Replace mock example objects with the actual data from the studentsData array
-  const students: Student[] = [
-    {
-      id: '1',
-      name: 'Mary Example',
-      age: 50,
-      activeLabel: 'Yes',
-      averageScore: 10,
-    },
-    {
-      id: '2',
-      name: 'Jade Test',
-      age: 21,
-      activeLabel: 'No',
-      averageScore: 10,
-    },
-  ];
+  const students: Student[] = [];
 </script>
 
 <main>
