@@ -3,14 +3,7 @@
   import { studentsData } from './lib/data';
   import type { StudentDataItem } from './lib/data';
   import type { Scores } from './lib/data';
-
-  type Student = {
-    id: string;
-    name: string;
-    age: number;
-    averageScore: number;
-    activeLabel: 'Yes' | 'No';
-  };
+  import type { Student } from './lib/data';
 
   function transformStudentData(studentsData: StudentDataItem[]): Student[] {
     const calculateAge = (birthdateString: string): number => {

@@ -13,6 +13,15 @@ export interface StudentDataItem {
   isActive: boolean;
 }
 
+// Moved this here so it can be used across files. Would like to see it in a /utils/types or something similar
+export type Student = {
+  id: string;
+  name: string;
+  age: number;
+  averageScore: number;
+  activeLabel: 'Yes' | 'No';
+};
+
 export const studentsData: readonly StudentDataItem[] = [
   {
     id: 1,

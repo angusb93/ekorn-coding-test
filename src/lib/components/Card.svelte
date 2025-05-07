@@ -1,5 +1,6 @@
 <script lang="ts">
-  let { student } = $props();
+  import type { Student } from '../data';
+  let { student }: { student: Student } = $props();
 </script>
 
 <li role="listitem" class="card">
