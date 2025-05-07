@@ -107,6 +107,8 @@
   main {
     max-width: 1024px;
     margin-inline: auto;
+    margin-top: 60px;
+    margin-bottom: 335px;
   }
 
   /* card section heading */
