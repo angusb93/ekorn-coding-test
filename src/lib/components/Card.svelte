@@ -1,5 +1,7 @@
 <script lang="ts">
   import type { Student } from '../data';
+
+  // type the prop
   let { student }: { student: Student } = $props();
 </script>
 
@@ -21,6 +23,7 @@
     </div>
     <div class="card__stat">
       <dt>Passed:</dt>
+      <!-- calculate whether passed or failed  -->
       <dd>{student.averageScore >= 50 ? 'Yes' : 'No'}</dd>
     </div>
     <div class="card__stat">
@@ -48,6 +51,7 @@
     font-size: 24px;
     font-weight: bold;
     color: #4b3d47;
+    /* add letter spacing to match figma */
     letter-spacing: -0.96px;
   }
 
@@ -70,5 +74,5 @@
   dd {
     margin: 0;
     font-weight: bold;
-  } /* styles go here */
+  }
 </style>

@@ -5,6 +5,7 @@
   import type { Student } from './lib/data';
   import { calculateAverageScore, calculateAge } from './lib/utils';
 
+  // Transform the student data into the correct format
   function transformStudentData(studentsData: StudentDataItem[]): Student[] {
     const transformedStudentsData = studentsData.map(student => {
       return {
@@ -21,11 +22,13 @@
     return transformedStudentsData;
   }
 
+  // create shallow copy of the studentsData array
   const students: Student[] = transformStudentData([...studentsData]);
 </script>
 
 <main>
   <h1 class="cards__heading">Students</h1>
+  <!-- iterate over the students array and display each card -->
   <ul class="cards" role="list">
     {#each students as student (student.id)}
       <Card {student} />
@@ -48,6 +51,7 @@
   .cards__heading {
     padding-bottom: 30px;
     font-family: Tahoma;
+    /* add letter spacing to match figma */
     letter-spacing: 0.4px;
     color: #4b3d47;
   }
