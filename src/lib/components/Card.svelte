@@ -31,8 +31,6 @@
 </li>
 
 <style>
-  /* card section heading */
-
   /* individual card */
   .card {
     list-style: none; /* hide bullet */

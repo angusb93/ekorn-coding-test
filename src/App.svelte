@@ -2,7 +2,6 @@
   import Card from './lib/components/Card.svelte';
   import { studentsData } from './lib/data';
   import type { StudentDataItem } from './lib/data';
-  import type { Scores } from './lib/data';
   import type { Student } from './lib/data';
   import { calculateAverageScore, calculateAge } from './lib/utils';
 
@@ -44,6 +43,8 @@
     margin-top: 60px;
     margin-bottom: 335px;
   }
+
+  /* card section heading */
   .cards__heading {
     padding-bottom: 30px;
     font-family: Tahoma;
@@ -60,14 +61,14 @@
     padding: 0; /* remove <ul> default space */
   }
 
-  /* ≥ 600 px ≈ “tablet / medium” – 2 columns */
+  /* ≥ 600 px */
   @media (min-width: 600px) {
     .cards {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  /* ≥ 960 px ≈ “desktop / large” – 3 columns (your original) */
+  /* ≥ 960 px */
   @media (min-width: 960px) {
     .cards {
       grid-template-columns: repeat(3, 1fr);
