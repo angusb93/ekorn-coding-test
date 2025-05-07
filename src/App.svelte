@@ -69,9 +69,13 @@
   />
   <!-- iterate over the students array and display each card -->
   <ul class="cards" role="list">
-    {#each displayedStudents as student (student.id)}
-      <Card {student} />
-    {/each}
+    {#if displayedStudents}
+      {#each displayedStudents as student (student.id)}
+        <Card {student} />
+      {/each}
+    {:else}
+      <li>No students</li>
+    {/if}
   </ul>
 </main>
 
