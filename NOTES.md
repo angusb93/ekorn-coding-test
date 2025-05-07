@@ -14,18 +14,20 @@ I then did a full read through of the README to understand everything the task w
 
 I made a few assumptions:
 
-1. Browser support required was relatively new browsers. As there is a few CSS properties not fully supported i.e. gap
-2. Cards dont link anywhere and so there is no hover state or other CTA
-3. The date string may be dirty and so added a protective case
-4. the Cards component is always used within a list and not singularly as it is a <li/>
+1. Browser support required was relatively new browsers. As there is a few CSS properties not fully supported i.e. gap.
+2. Cards dont link anywhere and so there is no hover state or other CTA.
+3. The date string may be dirty and so added a protective case.
+4. the Cards component is always used within a list and not singularly as it is a <li/>.
 
 ## 🚀 Additional features implemented
 
-The only thing I have implemented additionally is the medium breakpoint in the grid. It goes to two columns before going to one. This is just visual.
+1. I have implemented additionally is the medium breakpoint in the grid. It goes to two columns before going to one. This is just visual.
+2. I implemented the sorting functionality.
+3. I implemented the filtering functionality.
 
 ## 📒 Other Notes
 
-- I manually did the letter spacing on the "Students" title as it wasnt looking right.
+- I manually did the letter spacing on the "Students" title as it wasn't looking right.
 - I removed the redundant font declaration from the styling on "body" so that it cascades down from root.
 - I moved the type for "Student" to the data file so that I could access it elsewhere. Although I'm certain there is a better way of doing this as well as a different place for it be. Maybe in /utils/types.ts ?
 
