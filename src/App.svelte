@@ -1,6 +1,7 @@
 <script lang="ts">
   import { studentsData } from './lib/data';
   import type { StudentDataItem } from './lib/data';
+  import type { Scores } from './lib/data';
 
   type Student = {
     id: string;
@@ -10,7 +11,7 @@
     activeLabel: 'Yes' | 'No';
   };
 
-  function transformStudentData(studentsData: StudentDataItem[]) {
+  function transformStudentData(studentsData: StudentDataItem[]): Student[] {
     const calculateAge = (birthdateString: string): number => {
       const birthdate = new Date(birthdateString);
 
@@ -35,21 +36,33 @@
       return age;
     };
 
+    const calculateAverageScore = (scores: Scores): number => {
+      const numbers = Object.values(scores).filter(Number.isFinite);
+      if (numbers.length === 0) {
+        console.error(`Cannot parse scores`);
+        return 0;
+      }
+
+      const total = numbers.reduce((sum, n) => sum + n, 0);
+      return total / numbers.length;
+    };
+
     const transformedStudentsData = studentsData.map(student => {
       return {
-        id: student.id,
+        id: String(student.id),
         name: `${student.firstName} ${student.lastName}`,
         age: calculateAge(student.birthdate),
-        activelabel: (student.isActive
+        activeLabel: (student.isActive
           ? 'Yes'
           : 'No') as Student['activeLabel'],
+        averageScore: calculateAverageScore(student.scores),
       };
     });
 
     return transformedStudentsData;
   }
-  // Replace mock example objects with the actual data from the studentsData array
-  const students: Student[] = [];
+
+  const students: Student[] = transformStudentData([...studentsData]);
 </script>
 
 <main>
