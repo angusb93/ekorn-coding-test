@@ -129,14 +129,18 @@
     list-style: none; /* hide bullet */
     background: #ffffff;
     border-radius: 6px;
-    padding: 1.25rem;
+    padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    font-family: Verdana;
+    font-size: 20px;
+    line-height: 1;
   }
 
   .card__title {
-    margin: 0 0 1rem;
-    font-size: 1.25rem;
-    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4b3d47;
   }
 
   /* student details */
@@ -152,10 +156,11 @@
   }
 
   dt {
-    color: #555;
+    color: #6f626b;
+    font-weight: normal;
   }
   dd {
     margin: 0;
-    font-weight: 600;
+    font-weight: bold;
   }
 </style>
