@@ -38,6 +38,8 @@
   /* main layout */
   main {
     max-width: 1024px;
+    padding-left: 30px;
+    padding-right: 30px;
     margin-inline: auto;
     margin-top: 60px;
     margin-bottom: 335px;
