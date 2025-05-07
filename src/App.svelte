@@ -44,7 +44,7 @@
       }
 
       const total = numbers.reduce((sum, n) => sum + n, 0);
-      return total / numbers.length;
+      return Math.round(total / numbers.length);
     };
 
     const transformedStudentsData = studentsData.map(student => {
