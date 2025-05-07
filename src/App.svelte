@@ -115,12 +115,14 @@
   .cards__heading {
     padding-bottom: 30px;
     font-family: Tahoma;
+    letter-spacing: 0.4px;
+    color: #4b3d47;
   }
 
   /* layout for the grid of cards */
   .cards {
     display: grid;
-    gap: 1.5rem;
+    gap: 30px;
     grid-template-columns: repeat(3, 1fr);
     margin: 0;
     padding: 0; /* remove <ul> default space */
@@ -132,7 +134,7 @@
     background: #ffffff;
     border-radius: 6px;
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 6px 20px 0px rgba(86, 87, 75, 0.14);
     font-family: Verdana;
     font-size: 20px;
     line-height: 1;
@@ -143,6 +145,7 @@
     font-size: 24px;
     font-weight: bold;
     color: #4b3d47;
+    letter-spacing: -0.96px;
   }
 
   /* student details */
