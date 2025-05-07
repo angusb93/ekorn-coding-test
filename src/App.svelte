@@ -45,8 +45,6 @@
       updatedList = updatedList.sort((a, b) => a.name.localeCompare(b.name));
     }
 
-    console.log('isFiltered', isFiltered);
-    console.log('isSorted', isSorted);
     displayedStudents = updatedList;
   }
 
