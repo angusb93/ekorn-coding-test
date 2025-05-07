@@ -112,6 +112,7 @@
   /* card section heading */
   .cards__heading {
     padding-bottom: 30px;
+    font-family: Tahoma;
   }
 
   /* layout for the grid of cards */
