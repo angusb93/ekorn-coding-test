@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Card from './lib/components/Card.svelte';
   import { studentsData } from './lib/data';
   import type { StudentDataItem } from './lib/data';
   import type { Scores } from './lib/data';
@@ -67,37 +68,9 @@
 
 <main>
   <h1 class="cards__heading">Students</h1>
-  <!-- Card collection -->
   <ul class="cards" role="list">
     {#each students as student (student.id)}
-      <li role="listitem" class="card">
-        <article>
-          <h2 class="card__title">{student.name}</h2>
-
-          <dl class="card__stats">
-            <div class="card__stat">
-              <dt>Age:</dt>
-              <dd>{student.age}</dd>
-            </div>
-            <div class="card__stat">
-              <dt>Average score:</dt>
-              <dd>{student.averageScore}</dd>
-            </div>
-            <div class="card__stat">
-              <dt>Active:</dt>
-              <dd>{student.activeLabel}</dd>
-            </div>
-            <div class="card__stat">
-              <dt>Passed:</dt>
-              <dd>{student.averageScore >= 50 ? 'Yes' : 'No'}</dd>
-            </div>
-            <div class="card__stat">
-              <dt>ID:</dt>
-              <dd>{student.id}</dd>
-            </div>
-          </dl>
-        </article>
-      </li>
+      <Card {student} />
     {/each}
   </ul>
 </main>
@@ -110,8 +83,6 @@
     margin-top: 60px;
     margin-bottom: 335px;
   }
-
-  /* card section heading */
   .cards__heading {
     padding-bottom: 30px;
     font-family: Tahoma;
@@ -126,46 +97,5 @@
     grid-template-columns: repeat(3, 1fr);
     margin: 0;
     padding: 0; /* remove <ul> default space */
-  }
-
-  /* individual card */
-  .card {
-    list-style: none; /* hide bullet */
-    background: #ffffff;
-    border-radius: 6px;
-    padding: 20px;
-    box-shadow: 0px 6px 20px 0px rgba(86, 87, 75, 0.14);
-    font-family: Verdana;
-    font-size: 20px;
-    line-height: 1;
-  }
-
-  .card__title {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #4b3d47;
-    letter-spacing: -0.96px;
-  }
-
-  /* student details */
-  .card__stats {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .card__stat {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  dt {
-    color: #6f626b;
-    font-weight: normal;
-  }
-  dd {
-    margin: 0;
-    font-weight: bold;
   }
 </style>
