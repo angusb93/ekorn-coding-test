@@ -53,8 +53,22 @@
   .cards {
     display: grid;
     gap: 30px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     margin: 0;
     padding: 0; /* remove <ul> default space */
+  }
+
+  /* ≥ 600 px ≈ “tablet / medium” – 2 columns */
+  @media (min-width: 600px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ≥ 960 px ≈ “desktop / large” – 3 columns (your original) */
+  @media (min-width: 960px) {
+    .cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>
