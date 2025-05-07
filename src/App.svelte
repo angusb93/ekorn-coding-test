@@ -66,27 +66,95 @@
 </script>
 
 <main>
-  <!-- The list of students -->
-  {#each students as student}
-    <!-- Example content to showcase Svelte — replace with your own template  -->
-    <div>
-      <div>{student.name.toUpperCase()}</div>
-      <p>
-        {#if student.age > 25}
-          Mature Student - {student.age} years old
-        {:else}
-          Young Student - {student.age} years old
-        {/if}
-      </p>
+  <h1 class="cards__heading">Students</h1>
+  <!-- Card collection -->
+  <ul class="cards" role="list">
+    {#each students as student (student.id)}
+      <li role="listitem" class="card">
+        <article>
+          <h2 class="card__title">{student.name}</h2>
 
-      Avg score: {student.averageScore}
-      Active: {student.activeLabel}
-    </div>
-  {/each}
+          <dl class="card__stats">
+            <div class="card__stat">
+              <dt>Age:</dt>
+              <dd>{student.age}</dd>
+            </div>
+            <div class="card__stat">
+              <dt>Average score:</dt>
+              <dd>{student.averageScore}</dd>
+            </div>
+            <div class="card__stat">
+              <dt>Active:</dt>
+              <dd>{student.activeLabel}</dd>
+            </div>
+            <div class="card__stat">
+              <dt>Passed:</dt>
+              <dd>{student.averageScore >= 50 ? 'Yes' : 'No'}</dd>
+            </div>
+            <div class="card__stat">
+              <dt>ID:</dt>
+              <dd>{student.id}</dd>
+            </div>
+          </dl>
+        </article>
+      </li>
+    {/each}
+  </ul>
 </main>
 
 <style>
+  /* main layout */
   main {
-    padding: 30px;
+    max-width: 1024px;
+    margin-inline: auto;
+  }
+
+  /* card section heading */
+  .cards__heading {
+    padding-bottom: 30px;
+  }
+
+  /* layout for the grid of cards */
+  .cards {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    padding: 0; /* remove <ul> default space */
+  }
+
+  /* individual card */
+  .card {
+    list-style: none; /* hide bullet */
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  }
+
+  .card__title {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  /* student details */
+  .card__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card__stat {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  dt {
+    color: #555;
+  }
+  dd {
+    margin: 0;
+    font-weight: 600;
   }
 </style>
