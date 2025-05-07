@@ -4,7 +4,7 @@
   import type { StudentDataItem } from './lib/data';
   import type { Student } from './lib/data';
   import { calculateAverageScore, calculateAge } from './lib/utils';
-
+  import ActionsBar from './lib/components/ActionsBar.svelte';
   // Transform the student data into the correct format
   function transformStudentData(studentsData: StudentDataItem[]): Student[] {
     const transformedStudentsData = studentsData.map(student => {
@@ -22,15 +22,56 @@
     return transformedStudentsData;
   }
 
-  // create shallow copy of the studentsData array
+  function toggleFilterByActiveLabel() {
+    isFiltered = !isFiltered;
+    refreshDisplayedStudents();
+  }
+
+  function toggleSortAlphabetically() {
+    isSorted = !isSorted;
+    refreshDisplayedStudents();
+  }
+
+  function refreshDisplayedStudents() {
+    let updatedList = [...students];
+
+    if (isFiltered) {
+      updatedList = updatedList.filter(
+        student => student.activeLabel === 'Yes',
+      );
+    }
+
+    if (isSorted) {
+      updatedList = updatedList.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    console.log('isFiltered', isFiltered);
+    console.log('isSorted', isSorted);
+    displayedStudents = updatedList;
+  }
+
+  // create shallow copy of the studentsData array and compute the transformation.
+  // This saves ever doing it again.
   const students: Student[] = transformStudentData([...studentsData]);
+
+  // define state
+  let isFiltered: boolean = $state(false);
+  let isSorted: boolean = $state(false);
+  let displayedStudents: Student[] = $state(students);
 </script>
 
 <main>
   <h1 class="cards__heading">Students</h1>
+  <!-- Action bar to hold the action buttons -->
+  <ActionsBar
+    {isFiltered}
+    {isSorted}
+    onFilter={toggleFilterByActiveLabel}
+    onSort={toggleSortAlphabetically}
+  />
   <!-- iterate over the students array and display each card -->
   <ul class="cards" role="list">
-    {#each students as student (student.id)}
+    {#each displayedStudents as student (student.id)}
       <Card {student} />
     {/each}
   </ul>
